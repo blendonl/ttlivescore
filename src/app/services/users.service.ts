@@ -16,5 +16,9 @@ export class UserService {
         return this.http.get<any>(`${environment.ttlivescoreApiUrl}/${this.usersUrl}/players`).pipe()
     }
 
+    getUser(id: string) {
+        return this.http.get<any>(`${environment.ttlivescoreApiUrl}/${this.usersUrl}/${id}`)
+    }
+
 
 }

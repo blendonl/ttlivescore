@@ -10,7 +10,7 @@
             </tr>
         </thead>
         <tbody class="table-group-divider">
-            <tr *ngFor="let x of users, let i = index">
+            <tr *ngFor="let x of users, let i = index" (click)="onRowClick(i)">
                 <th scope="row">{{i}}</th>
                 <td>{{x.firstName}}</td>
                 <td>{{x.lastName}}</td>
