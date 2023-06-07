@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from 'src/app/models/user.model';
-import { UserService } from 'src/app/services/users.service';
-import { WebSocketService } from 'src/app/services/websocket.service';
+import { WebSocketService } from 'src/app/core/services/websocket.service';
+import { User } from 'src/app/shared/models/user.model';
+import { UserService } from '../../services/users.service';
 
 @Component({
-  selector: 'users-list',
-  templateUrl: './users-list.component.html',
-  styleUrls: ['./users-list.component.scss']
+  selector: 'app-user-list',
+  templateUrl: './user-list.component.html',
+  styleUrls: ['./user-list.component.scss']
 })
-export class UsersListComponent {
+export class UserListComponent {
 
   users: User[] = []
 
@@ -38,6 +38,5 @@ export class UsersListComponent {
 
   }
   
-
 
 }

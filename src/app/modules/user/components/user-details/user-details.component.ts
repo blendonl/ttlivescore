@@ -1,15 +1,14 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { User } from 'src/app/models/user.model';
-import { UserService } from 'src/app/services/users.service';
+import { UserService } from '../../services/users.service';
+import { User } from 'src/app/shared/models/user.model';
 
 @Component({
-  selector: 'users-details',
-  templateUrl: './users-details.component.html',
-  styleUrls: ['./users-details.component.scss']
+  selector: 'app-user-details',
+  templateUrl: './user-details.component.html',
+  styleUrls: ['./user-details.component.scss']
 })
-export class UsersDetailsComponent {
-
+export class UserDetailsComponent {
   user: User | undefined
 
   constructor(private route: ActivatedRoute, private userService: UserService) { 
