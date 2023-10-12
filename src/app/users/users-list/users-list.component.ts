@@ -22,22 +22,14 @@ export class UsersListComponent {
 
   getUsers() {
 
-    const event = new EventSource('http://localhost:8080/match/1')
+    this.webSocketService.connect().subscribe()
 
-    event.onmessage = function (event) {
-      console.log(event.data)
-    }
+    this.userService.getUsers().subscribe((data) => {
+    console.log(data);
+    
 
-    // this.webSocketService.connect().subscribe(data => {
-    //   console.log(data)
-    // })
-    //
-    // this.userService.getUsers().subscribe((data) => {
-    //   console.log(data);
-    //
-    //
-    //   (data as []).forEach((u :any) => this.users.push(new User(u.firstName, u.lastName, u.email, u.password, u.teamName)))
-    // })
+      (data as []).forEach((u :any) => this.users.push(new User(u.firstName, u.lastName, u.email, u.password, u.teamName)))
+    })
   }
 
   onRowClick(index: number) {
@@ -46,14 +38,6 @@ export class UsersListComponent {
 
   }
 
-  onSendClick() {
-
-    let user: User = new User("ters", "", '', '', '');
-
-    this.webSocketService.sendMessage({id: 1, player: user, match: {id:1, finished:false, referee: user}})
-
-  }
-
-
+  
 
 }

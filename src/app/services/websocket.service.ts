@@ -1,23 +1,25 @@
 import { Injectable } from "@angular/core";
 import { Observable } from 'rxjs';
-import {User} from "../models/user.model";
-import {webSocket, WebSocketSubject} from 'rxjs/webSocket';
 
 @Injectable({
     providedIn: 'root'
   })
 export class WebSocketService {
-    private socket: WebSocketSubject<any>;
+    private socket: WebSocket;
 
     constructor() {
-      this.socket = webSocket('ws://localhost:8080/ws')
+      this.socket = new WebSocket('ws://localhost:8080');
     }
 
-    public connect() : WebSocketSubject<any>{
-      return this.socket
+    public connect(): Observable<any> {
+      return new Observable(observer => {
+        this.socket.onmessage = (event) => observer.next(event.data);
+        this.socket.onerror = (event) => observer.error(event);
+        this.socket.onclose = () => observer.complete();
+      });
     }
-
-    public sendMessage(message: {id: number, player: User, match: {id: number, finished: boolean, referee: User}}): void {
-      this.socket.next(JSON.stringify(message));
+  
+    public sendMessage(message: string): void {
+      this.socket.send(message);
     }
 }
