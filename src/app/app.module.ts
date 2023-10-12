@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsersModule } from './users/users.module';
 import { HttpClientModule } from '@angular/common/http';
-import {MatchesModule} from "./matches/matches.module";
 
 @NgModule({
   declarations: [
@@ -15,8 +14,7 @@ import {MatchesModule} from "./matches/matches.module";
     BrowserModule,
     AppRoutingModule,
     UsersModule,
-    MatchesModule,
-    HttpClientModule
+        HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
