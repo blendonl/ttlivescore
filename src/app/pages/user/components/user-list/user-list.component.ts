@@ -26,9 +26,9 @@ export class UserListComponent {
 
     this.userService.getUsers().subscribe((data) => {
       console.log(data);
-      
 
-      (data as []).forEach((u :any) => this.users.push(new User(u.firstName, u.lastName, u.email, u.password, u.teamName)))
+
+      (data as []).forEach((u :any) => this.users.push(new User(u.id, u.firstName, u.lastName, u.gender, u.brithDate, u.email, u.password, u.teamName)))
     })
   }
 
@@ -37,6 +37,6 @@ export class UserListComponent {
     this.router.navigateByUrl('users/' + (index + 1))
 
   }
-  
+
 
 }
