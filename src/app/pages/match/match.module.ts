@@ -4,6 +4,10 @@ import { MatchListComponent } from './components/match-list/match-list.component
 import { MatchDetailsComponent } from './components/match-details/match-details.component';
 import { MatchRoutingModule } from './match-routing.module';
 import { MatchPointsComponent } from './components/match-points/match-points.component';
+import { MatchEditComponent } from './components/match-edit/match-edit.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatTabsModule} from "@angular/material/tabs";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 
@@ -11,11 +15,16 @@ import { MatchPointsComponent } from './components/match-points/match-points.com
   declarations: [
     MatchListComponent,
     MatchDetailsComponent,
-    MatchPointsComponent
+    MatchPointsComponent,
+    MatchEditComponent
   ],
   imports: [
     CommonModule,
-    MatchRoutingModule
+    MatchRoutingModule,
+    ReactiveFormsModule,
+    MatTabsModule,
+    BrowserAnimationsModule
+
   ]
 })
 export class MatchModule { }

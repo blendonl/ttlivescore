@@ -3,7 +3,8 @@ import {Match} from "./match.model";
 
 export class Point{
 
-  constructor(public id: number, public match: Match, public player: User) {
+  constructor(public id: number, public match: Match, public player: User, public setWinner: boolean, public teamA: boolean) {
+
 
   }
 

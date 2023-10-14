@@ -1,0 +1,19 @@
+<div class="container">
+
+
+  <form [formGroup]="addPointForm" (ngSubmit)="onAddPointSubmit()">
+
+    <select name="playersSelect" id="playersSelect" formControlName="playersSelect" >
+      <option *ngFor="let players of match?.matchPlayers" [ngValue]="players.player.email">
+        {{players.player.firstName}} {{players.player.lastName}}
+      </option>
+    </select>
+
+    <input type="checkbox" name="isSetWinner" id="isSetWinner" formControlName="isSetWinner">
+
+    <button type="submit">Add Point</button>
+
+  </form>
+
+
+</div>

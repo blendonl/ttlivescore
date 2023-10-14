@@ -20,9 +20,7 @@ export class MatchListComponent {
 
     this.matches.push(...this.matches)
 
-    this.matchService.savePoint(1, 1).subscribe(data => {
-      console.log(data)}, onerror => {
-      console.log(onerror)})
+
   }
 
   getMatches() {
