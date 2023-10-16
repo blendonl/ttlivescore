@@ -4,8 +4,8 @@
   <form [formGroup]="addPointForm" (ngSubmit)="onAddPointSubmit()">
 
     <select name="playersSelect" id="playersSelect" formControlName="playersSelect" >
-      <option *ngFor="let players of match?.matchPlayers" [ngValue]="players.player.email">
-        {{players.player.firstName}} {{players.player.lastName}}
+      <option *ngFor="let players of match?.players" [ngValue]="players">
+<!--        {{players.player.firstName}} {{players.player.lastName}}-->
       </option>
     </select>
 

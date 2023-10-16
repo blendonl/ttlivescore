@@ -1,0 +1,17 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+
+
+.b-success {
+  background-color: $green-300;
+  color: $gray-100;
+}
+
+.b-danger {
+  background-color: $red-500;
+  color: $gray-100;
+}
+
+
+
+
