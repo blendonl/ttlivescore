@@ -9,7 +9,7 @@ export class User {
     public email: string,
     public password: string,
     public teamName: string,
-    public profilePicture: string | ArrayBuffer | null | undefined
+    public profilePicture: File
   ) {
 
     }

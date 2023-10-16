@@ -21,10 +21,16 @@ export class UserService {
     }
 
     saveUser(user: User) {
-      return this.http.post<any>(`${environment.ttlivescoreApiUrl}/${this.usersUrl}`, user).pipe();
+      let formData = new FormData()
+     formData.append('profilePicture', user.profilePicture)
+      formData.append('firstName', user.firstName)
+      formData.append('lastName', user.lastName)
+      formData.append('email', user.email)
+      formData.append('password', user.password)
+      formData.append('gender', user.gender)
+      formData.append('teamName', user.teamName)
+      return this.http.post<any>(`${environment.ttlivescoreApiUrl}/${this.usersUrl}`,formData).pipe()
     }
-
-
     readImage() {
       return this.http.get('assets/favicon.ico').pipe();
     }

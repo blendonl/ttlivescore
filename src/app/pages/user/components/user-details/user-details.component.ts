@@ -38,6 +38,9 @@ export class UserDetailsComponent {
     this.userService.getUser(id).subscribe((data: User) => {
       this.user = data;
 
+      console.log(this.user)
+      console.log(data)
+
 
     })
 

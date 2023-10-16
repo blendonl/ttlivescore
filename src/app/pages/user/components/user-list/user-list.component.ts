@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { WebSocketService } from 'src/app/core/services/websocket.service';
 import { User } from 'src/app/shared/models/user.model';
 import { UserService } from '../../services/users.service';
-import {A} from "@angular/cdk/keycodes";
 
 @Component({
   selector: 'app-user-list',
@@ -25,7 +22,7 @@ export class UserListComponent {
   getUsers() {
 
     this.userService.getUsers().subscribe((data) => {
-      (data as []).forEach((u :any) => this.users.push(new User(u.id, u.firstName, u.lastName, u.gender, u.brithDate, u.email, u.password, u.teamName, '')));
+      (data as []).forEach((u :any) => this.users.push(new User(u.id, u.firstName, u.lastName, u.gender, u.brithDate, u.email, u.password, u.teamName, u.profilePicture)));
     })
   }
 
@@ -54,10 +51,9 @@ export class UserListComponent {
   doFileInput(event: FileList | null) {
 
 
+    let file = event?.item(0) as File;
     const reader = new FileReader();
-    reader.onload = (e) => {
-
-
+    reader.onload = async (e) => {
 
       // @ts-ignore
       this.image = e.target?.result;
@@ -66,23 +62,28 @@ export class UserListComponent {
 
 
 
-
-       let user = new User(1, 'Sabrina ', 'Keller', 'F', new Date('12/27/1997'), 'sabrina@gmail.com', 'password', 'Team 2', e.target?.result)
-       console.log(user)
-
-
-       this.userService.saveUser(user).subscribe(data => { console.log(data)}, onerror => console.log(onerror) )
+      let user = new User(1, 'Sabrina ', 'Keller', 'F', new Date('12/27/1997'), 'sabrina@gmail.com', 'password', 'T1', file)
+      console.log(user)
 
 
-
-
-
-
-
+      this.userService.saveUser(user).subscribe(data => {
+        console.log(data)
+      }, onerror => console.log(onerror.headers))
 
 
     }
-    reader.readAsDataURL(new Blob([event?.item(0) ?? '']));
+
+    reader.onerror = (err => {
+
+      console.log(err)
+
+    })
+
+
+
+
+    reader.readAsDataURL(file)
+
 
 
   }
