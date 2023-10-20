@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
-import { UserListComponent } from './components/user-list/user-list.component';
-import { UserDetailsComponent } from './components/user-details/user-details.component';
-import { UserRoutingModule } from './user-routing.module';
+import {UserListComponent} from './components/user-list/user-list.component';
+import {UserDetailsComponent} from './components/user-details/user-details.component';
+import {UserRoutingModule} from './user-routing.module';
 import {MatGridListModule} from "@angular/material/grid-list";
-
+import {MatTabsModule} from "@angular/material/tabs";
 
 
 @NgModule({
@@ -16,7 +16,9 @@ import {MatGridListModule} from "@angular/material/grid-list";
     CommonModule,
     UserRoutingModule,
     NgOptimizedImage,
-    MatGridListModule
+    MatGridListModule,
+    MatTabsModule
   ]
 })
-export class UserModule { }
+export class UserModule {
+}

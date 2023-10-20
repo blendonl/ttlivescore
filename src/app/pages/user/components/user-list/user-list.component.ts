@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { User } from 'src/app/shared/models/user.model';
-import { UserService } from '../../services/users.service';
+import {Component} from '@angular/core';
+import {User} from 'src/app/shared/models/user.model';
+import {UserService} from '../../services/users.service';
 
 @Component({
   selector: 'app-user-list',
@@ -10,7 +10,7 @@ import { UserService } from '../../services/users.service';
 export class UserListComponent {
 
   users: User[] = []
-  image: string| ArrayBuffer | null = new ArrayBuffer(0);
+  image: string | ArrayBuffer | null = new ArrayBuffer(0);
 
   constructor(private userService: UserService) {
 
@@ -18,11 +18,10 @@ export class UserListComponent {
   }
 
 
-
   getUsers() {
 
     this.userService.getUsers().subscribe((data) => {
-      (data as []).forEach((u :any) => this.users.push(new User(u.id, u.firstName, u.lastName, u.gender, u.brithDate, u.email, u.password, u.teamName, u.profilePicture)));
+      (data as []).forEach((u: any) => this.users.push(new User(u.id, u.firstName, u.lastName, u.gender, u.brithDate, u.email, u.password, u.teamName, u.profilePicture)));
     })
   }
 
@@ -36,13 +35,7 @@ export class UserListComponent {
     this.userService.readImage().subscribe(data => {
 
 
-
     })
-
-
-
-
-
 
 
   }
@@ -59,10 +52,7 @@ export class UserListComponent {
       this.image = e.target?.result;
 
 
-
-
-
-      let user = new User(1, 'Sabrina ', 'Keller', 'F', new Date('12/27/1997'), 'sabrina@gmail.com', 'password', 'T1', file)
+      let user = new User(1, 'Sabrina ', 'Keller', 'F', new Date('12/27/1997'), 'sabrina@gmail.com', 'password', 'PriPing', file)
       console.log(user)
 
 
@@ -80,10 +70,7 @@ export class UserListComponent {
     })
 
 
-
-
     reader.readAsDataURL(file)
-
 
 
   }

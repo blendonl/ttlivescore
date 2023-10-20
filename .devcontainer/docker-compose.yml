@@ -1,0 +1,22 @@
+version: "3.7"
+
+services:
+  web:
+    build:
+      context: ..
+      dockerfile: DockerFile
+    container_name: ttlivescore-web
+    hostname: localhost
+    ports:
+      - '4200:4200'
+    networks:
+      - mynetwork
+#    volumes:
+#      - ..:/workspace
+
+
+volumes:
+  workspace:
+
+networks:
+  mynetwork:
