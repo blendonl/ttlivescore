@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../../services/users.service';
 import { User } from 'src/app/shared/models/user.model';
+import {MatchService} from "../../../match/services/match.service";
+import {Match} from "../../../../shared/models/match.model";
 
 @Component({
   selector: 'app-user-details',
@@ -11,7 +13,15 @@ import { User } from 'src/app/shared/models/user.model';
 export class UserDetailsComponent {
   user: User | undefined
 
-  constructor(private route: ActivatedRoute, private userService: UserService) { 
+  matches: Match[] = []
+
+  constructor(private route: ActivatedRoute, private userService: UserService, private matchServices: MatchService) {
+    matchServices.getMatchesByUserId('1').subscribe(data => {
+      this.matches.push(data)
+      this.matches.push(...this.matches)
+      this.matches.push(...this.matches)
+      this.matches.push(...this.matches)
+    })
   }
 
   ngOnInit(): void {
@@ -19,7 +29,7 @@ export class UserDetailsComponent {
     let id: string = this.route.snapshot.paramMap.get('id') ?? ''
 
     this.getUser(id)
-    
+
 
   }
 
@@ -28,7 +38,10 @@ export class UserDetailsComponent {
     this.userService.getUser(id).subscribe((data: User) => {
       this.user = data;
 
-      
+      console.log(this.user)
+      console.log(data)
+
+
     })
 
   }

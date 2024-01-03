@@ -51,11 +51,11 @@ export class MatchEditComponent implements OnInit {
     console.log(isSetWinner)
     console.log(playerSelectedEmail)
 
-    let matchPlayer = this.match?.matchPlayers.find(matchPlayer =>  matchPlayer.player.email === playerSelectedEmail)
+    // let matchPlayer = this.match?.matchPlayers.find(matchPlayer =>  matchPlayer.player.email === playerSelectedEmail)
 
-    console.log(matchPlayer)
+    // console.log(matchPlayer)
 
-    this.matchService.savePoint(this.match?.id ?? 0, matchPlayer?.player.id ?? 0, matchPlayer?.teamA + '', isSetWinner ?? 'false').subscribe()
+    this.matchService.savePoint(this.match?.id ?? 0,  0, '', isSetWinner ?? 'false').subscribe()
 
 
 

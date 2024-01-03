@@ -1,9 +1,9 @@
-<div class="container">
+<div class="">
   <div class="d-flex flex-row justify-content-center mt-5" *ngFor="let match of matches">
     <ul class="list-group list-group-horizontal">
-      <ng-container *ngFor="let matchPlayer of match.matchPlayers, let i = index" (click)="onRowClicked(i)">
+      <ng-container *ngFor="let matchPlayer of match.players, let i = index" (click)="onRowClicked(i)">
         <li class="list-group-item me-2 border-1 rounded-1">
-          {{matchPlayer.player.firstName}} {{matchPlayer.player.lastName}}
+          {{matchPlayer}} {{matchPlayer}}
         </li>
         <li class="list-group-item me-2 border-1 rounded-2 list-group-item-danger" *ngIf="i % 2 === 0"> {{match.teamASets}} : {{match.teamBSets}}</li>
       </ng-container>

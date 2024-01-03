@@ -12,6 +12,10 @@ export class MatchListComponent {
   @Input() matches: Match[] = []
 
   constructor(private matchService: MatchService, private cdr: ChangeDetectorRef) {
+
+    this.matchService.addPlayer(1).subscribe(da => {}, onerror => {
+      console.log(onerror)
+    })
     this.getMatches()
   }
 
@@ -19,6 +23,7 @@ export class MatchListComponent {
   savePoint() {
 
     this.matches.push(...this.matches)
+
 
 
   }

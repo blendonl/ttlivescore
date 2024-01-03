@@ -8,15 +8,19 @@ import {environment} from "../../../../environments/environment.dev";
 export class MatchService {
 
     matchesUrl= 'match'
-    users: string = 'users'
+    usersUrl: string = 'users'
     constructor(private http: HttpClient) { }
+
+  addPlayer(playerId: number) {
+      return this.http.post<any>(`${environment.ttlivescoreApiUrl}/${this.matchesUrl}/1/players`, {id: 1}).pipe();
+  }
 
     getMatches()  {
       return this.http.get<any>(`${environment.ttlivescoreApiUrl}/${this.matchesUrl}`).pipe()
     }
 
-    getMatchesByUser(userId: string) {
-      return this.http.get<any>(`${environment.ttlivescoreApiUrl}/${this.users}/${userId}/matches`)
+    getMatchesByUserId(userId: string) {
+      return this.http.get<any>(`${environment.ttlivescoreApiUrl}/${this.usersUrl}/${userId}/matches`)
     }
 
     getRealTimeMatchPoints(matchId: number) {
@@ -40,6 +44,8 @@ export class MatchService {
     getMatchById(matchId: number) {
       return this.http.get<any>(`${environment.ttlivescoreApiUrl}/${this.matchesUrl}/${matchId}`).pipe();
     }
+
+
 
 
 }

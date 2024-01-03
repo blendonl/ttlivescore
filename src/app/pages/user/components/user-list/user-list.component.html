@@ -22,6 +22,14 @@
 
     </table>
 
+  <button class="btn" (click)="fileInput.click()">
+    Ni11
+    <input #fileInput type="file" hidden (change)="doFileInput(fileInput.files)">
+
+  </button>
+
+  <img src="{{image}}" alt="" />
+
 
 </div>
 
