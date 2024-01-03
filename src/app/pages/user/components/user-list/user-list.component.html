@@ -1,0 +1,35 @@
+<div class="table-responsive">
+
+    <table class="table table-hover table-bordered align-middle ">
+        <thead class="table-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Team Name</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            <tr *ngFor="let x of users, let i = index" (click)="onRowClick(i)">
+                <th scope="row">{{i}}</th>
+                <td>{{x.firstName}}</td>
+                <td>{{x.lastName}}</td>
+                <td>{{x.teamName}}</td>
+            </tr>
+        </tbody>
+
+
+
+    </table>
+
+  <button class="btn" (click)="fileInput.click()">
+    Ni11
+    <input #fileInput type="file" hidden (change)="doFileInput(fileInput.files)">
+
+  </button>
+
+  <img src="{{image}}" alt="" />
+
+
+</div>
+

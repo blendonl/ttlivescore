@@ -1,0 +1,31 @@
+<div class="row ">
+  <mat-tab-group class="col border border-1" color="primary" mat-align-tabs="start" mat-stretch-tabs="false">
+    <mat-tab label="Game {{i + 1}}" *ngFor="let points of sets, let i = index">
+      <div class="container w-75 mt-5">
+        <div class="row">
+        </div>
+        <div class="row" *ngFor="let point of points">
+          <p *ngIf="point.teamA" class="col p-2 border border-1 rounded-1 text-start">
+
+            {{point.player.firstName}} {{point.player.lastName}}
+          </p>
+          <p *ngIf="!point.teamA" class="col ms-2">
+          </p>
+          <p [ngClass]="{'ms-2':point.teamA, 'me-2':!point.teamA}"
+             class="col-2 p-2 border border-1 rounded rounded-1 text-center">
+            Date
+          </p>
+
+          <p class="col" *ngIf="point.teamA">
+          </p>
+          <p *ngIf="!point.teamA" class="col p-2 border border-1 rounded rounded-1 text-end ">
+            {{point.player.firstName}} {{point.player.lastName}}
+          </p>
+
+        </div>
+
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+
+</div>
