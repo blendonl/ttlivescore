@@ -28,4 +28,10 @@ export class LeagueService {
       .get<League[]>(`${environment.ttlivescoreApiUrl}/${this.leagueUrl}`)
       .pipe();
   }
+
+  getLeagueById(id: number): Observable<League> {
+    return this.httpClient
+      .get<League>(`${environment.ttlivescoreApiUrl}/${this.leagueUrl}/${id}`)
+      .pipe();
+  }
 }
