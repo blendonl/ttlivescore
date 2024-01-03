@@ -1,11 +1,31 @@
+<table class="table table-bordered">
+  <thead class="header">
+    <tr>
+      <th class="">Name</th>
+      <th class="">Category</th>
+      <th class="">Year Created</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (league of leagues; track league.name) {
+      <tr>
+        <td>
+          {{ league.id }}
+        </td>
+        <td>
+          {{ league.name }}
+        </td>
 
+        <td>
+          {{ league.category }}
+        </td>
 
-<ul>
-
-
-@for (league of getAllLeagues(); track league.name) {
-<li> {{ league.name }} </li>
-} @empty {
-<li> There are no items. </li>
-}
-</ul>
+        <td>
+          {{ league.year }}
+        </td>
+      </tr>
+    } @empty {
+      <div>There are no items.</div>
+    }
+  </tbody>
+</table>

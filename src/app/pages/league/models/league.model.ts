@@ -1,3 +1,9 @@
-import {Team} from "./team.model";
+import { Team } from './team.model';
 
-export type League = { id: number, name: string, gender: string, teams: Team[]}
+export type League = {
+  id: number;
+  name: string;
+  category: string;
+  year: number;
+  teams: Team[];
+};
