@@ -68,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ttlivescore:build:production"
+              "buildTarget": "ttlivescore:build:production"
             },
             "development": {
-              "browserTarget": "ttlivescore:build:development"
+              "buildTarget": "ttlivescore:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ttlivescore:build"
+            "buildTarget": "ttlivescore:build"
           }
         },
         "test": {
