@@ -1,0 +1,11 @@
+
+
+<ul>
+
+
+@for (league of getAllLeagues(); track league.name) {
+<li> {{ league.name }} </li>
+} @empty {
+<li> There are no items. </li>
+}
+</ul>
