@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment.dev';
 import { League } from '../models/league.model';
-import { Observable } from 'rxjs';
+import { catchError, Observable, of } from 'rxjs';
 import { LeagueShort } from '../models/league.short.model';
+import { Team } from '../../team/model/team.model';
 
 @Injectable({
   providedIn: 'root',
@@ -42,6 +43,26 @@ export class LeagueService {
   deleteById(id: number) {
     return this.httpClient
       .delete(`${environment.ttlivescoreApiUrl}/${this.leagueUrl}/${id}`)
+      .pipe();
+  }
+
+  addTeam(id: number, teamId: number) {
+    return this.httpClient
+      .post(`${environment.ttlivescoreApiUrl}/${this.leagueUrl}/${id}/teams`, {
+        id: teamId,
+      })
+      .pipe(
+        catchError((err, caught) => {
+          return of(err);
+        }),
+      );
+  }
+
+  getAllTeams(id: number) {
+    return this.httpClient
+      .get<Team[]>(
+        `${environment.ttlivescoreApiUrl}/${this.leagueUrl}/${id}/teams`,
+      )
       .pipe();
   }
 }

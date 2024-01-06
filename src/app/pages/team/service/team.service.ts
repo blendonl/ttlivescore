@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Team } from '../model/team.model';
 import { environment } from '../../../../environments/environment.dev';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, catchError, Observable, of, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -14,19 +14,23 @@ export class TeamService {
     this.teamUrl = 'teams';
   }
 
-  createLeague(team: { name: string; category: string }): Observable<Team> {
+  create(team: { name: string }) {
     return this.httpClient
       .post<Team>(`${environment.ttlivescoreApiUrl}/${this.teamUrl}`, team)
-      .pipe();
+      .pipe(
+        catchError((err, caught) => {
+          return of(err);
+        }),
+      );
   }
 
-  getAllTeams(): Observable<Team[]> {
+  getAll(): Observable<Team[]> {
     return this.httpClient
       .get<Team[]>(`${environment.ttlivescoreApiUrl}/${this.teamUrl}`)
       .pipe();
   }
 
-  getLeagueById(id: number): Observable<Team> {
+  getById(id: number): Observable<Team> {
     return this.httpClient
       .get<Team>(`${environment.ttlivescoreApiUrl}/${this.teamUrl}/${id}`)
       .pipe();

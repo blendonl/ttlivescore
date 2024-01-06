@@ -1,0 +1,20 @@
+<form [formGroup]="addTeamFormGroup" (ngSubmit)="addTeam()">
+  <div class="row">
+    <input class="col-4 mb-2" type="text" (keyup)="searchChange($event)" />
+  </div>
+  <div class="row">
+    <select class="col-5" id="team" size="5" formControlName="team">
+      <option *ngFor="let team of teams | async" [ngValue]="team.name">
+        {{ team.name }}
+      </option>
+    </select>
+  </div>
+
+  <div class="row mt-2">
+    <button class="col-1 me-auto btn btn-primary">Submit</button>
+  </div>
+</form>
+
+@if (isSubmitted.value) {
+  <h1>{{ message.value }}</h1>
+}

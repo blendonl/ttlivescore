@@ -13,10 +13,10 @@ import { RouterLink } from '@angular/router';
   styleUrl: './team-list.component.scss',
 })
 export class TeamListComponent implements OnInit {
-  @Input() teams: BehaviorSubject<Team[]>;
+  @Input() teams: Team[];
 
   constructor(private teamService: TeamService) {
-    this.teams = new BehaviorSubject<Team[]>([]);
+    this.teams = [];
   }
 
   ngOnInit(): void {}

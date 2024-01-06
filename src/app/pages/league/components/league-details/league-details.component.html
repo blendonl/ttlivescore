@@ -9,5 +9,5 @@
     <p>Year Created: {{ league.yearCreated }}</p>
   </div>
 
-  <div>Teams</div>
+  <app-team-list [teams]="league.teams"></app-team-list>
 }

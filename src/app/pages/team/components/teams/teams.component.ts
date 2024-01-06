@@ -12,16 +12,16 @@ import { TeamListComponent } from '../team-list/team-list.component';
   styleUrl: './teams.component.scss',
 })
 export class TeamsComponent implements OnInit {
-  teams: BehaviorSubject<Team[]>;
+  teams: Team[];
 
   constructor(private teamService: TeamService) {
-    this.teams = new BehaviorSubject<Team[]>([]);
+    this.teams = [];
   }
   async ngOnInit() {
-    this.teams.next(await this.getAllTeams());
+    this.teams = await this.getAllTeams();
   }
 
   async getAllTeams() {
-    return await firstValueFrom(this.teamService.getAllTeams());
+    return await firstValueFrom(this.teamService.getAll());
   }
 }

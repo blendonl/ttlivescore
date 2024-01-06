@@ -7,14 +7,11 @@
       <tr>
         <th class="">Id</th>
         <th class="">Name</th>
-        <th class="">Category</th>
-        <th class="">Year Created</th>
-        <th class="">Number of Teams</th>
         <th class=""></th>
       </tr>
     </thead>
     <tbody>
-      @for (team of teams | async; track team.name) {
+      @for (team of teams; track team.name) {
         <tr>
           <td>
             {{ team.id }}
