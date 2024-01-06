@@ -9,6 +9,7 @@
         <th class="">Name</th>
         <th class="">Category</th>
         <th class="">Year Created</th>
+        <th class="">Number of Teams</th>
         <th class=""></th>
       </tr>
     </thead>
@@ -27,7 +28,11 @@
           </td>
 
           <td>
-            {{ league.year }}
+            {{ league.yearCreated }}
+          </td>
+
+          <td>
+            {{ league.teamsLength }}
           </td>
 
           <td class="w-25">

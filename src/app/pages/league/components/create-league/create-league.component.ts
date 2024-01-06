@@ -3,6 +3,7 @@ import { LeagueService } from '../../services/league.service';
 import { League } from '../../models/league.model';
 import { FormControl, FormGroup } from '@angular/forms';
 import { firstValueFrom } from 'rxjs';
+import { LeagueShort } from '../../models/league.short.model';
 
 @Component({
   selector: 'app-create-league',
@@ -21,8 +22,8 @@ export class CreateLeagueComponent {
     this.categories = ['veteran', 'Senior', 'junior', 'kadet', 'mini-kadet'];
   }
 
-  async createLeague(): Promise<League> {
-    let newLeague: League | null = await firstValueFrom<League>(
+  async createLeague(): Promise<LeagueShort> {
+    let newLeague: LeagueShort | null = await firstValueFrom<LeagueShort>(
       this.leagueService.createLeague({
         name: this.createLeagueFormGroup.get('name')?.value,
         category: this.createLeagueFormGroup.get('category')?.value,

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment.dev';
 import { League } from '../models/league.model';
 import { Observable } from 'rxjs';
+import { LeagueShort } from '../models/league.short.model';
 
 @Injectable({
   providedIn: 'root',
@@ -14,18 +15,21 @@ export class LeagueService {
     this.leagueUrl = 'leagues';
   }
 
-  createLeague(league: { name: string; category: string }): Observable<League> {
+  createLeague(league: {
+    name: string;
+    category: string;
+  }): Observable<LeagueShort> {
     return this.httpClient
-      .post<League>(
+      .post<LeagueShort>(
         `${environment.ttlivescoreApiUrl}/${this.leagueUrl}`,
         league,
       )
       .pipe();
   }
 
-  getAllLeagues(): Observable<League[]> {
+  getAllLeagues(): Observable<LeagueShort[]> {
     return this.httpClient
-      .get<League[]>(`${environment.ttlivescoreApiUrl}/${this.leagueUrl}`)
+      .get<LeagueShort[]>(`${environment.ttlivescoreApiUrl}/${this.leagueUrl}`)
       .pipe();
   }
 

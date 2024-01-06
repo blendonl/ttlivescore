@@ -4,6 +4,6 @@ export type League = {
   id: number;
   name: string;
   category: string;
-  year: number;
+  yearCreated: number;
   teams: Team[];
 };

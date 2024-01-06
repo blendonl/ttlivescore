@@ -5,6 +5,7 @@ import { LeagueRoutingModule } from '../../league-routing.module';
 import { League } from '../../models/league.model';
 import { NgClass } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
+import { LeagueShort } from '../../models/league.short.model';
 
 @Component({
   selector: 'app-league-list',
@@ -12,9 +13,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./league-list.component.scss'],
 })
 export class LeagueListComponent implements OnInit {
-  @Input() leagues: BehaviorSubject<League[]> = new BehaviorSubject<League[]>(
-    [],
-  );
+  @Input() leagues: BehaviorSubject<LeagueShort[]> = new BehaviorSubject<
+    LeagueShort[]
+  >([]);
 
   constructor(
     private leagueService: LeagueService,

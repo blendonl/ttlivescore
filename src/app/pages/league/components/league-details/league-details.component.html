@@ -1,10 +1,13 @@
 @if (league === null) {
   <div>League doesnt exist!</div>
 } @else {
+  <h1>League Details</h1>
   <div>
-    <h1>{{ league.id }}</h1>
-    <h1>{{ league.name }}</h1>
-    <h1>{{ league.category }}</h1>
-    <h1>{{ league.year }}</h1>
+    <p>Id: {{ league.id }}</p>
+    <p>Name: {{ league.name }}</p>
+    <p>Category: {{ league.category }}</p>
+    <p>Year Created: {{ league.yearCreated }}</p>
   </div>
+
+  <div>Teams</div>
 }
