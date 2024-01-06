@@ -34,4 +34,10 @@ export class LeagueService {
       .get<League>(`${environment.ttlivescoreApiUrl}/${this.leagueUrl}/${id}`)
       .pipe();
   }
+
+  deleteById(id: number) {
+    return this.httpClient
+      .delete(`${environment.ttlivescoreApiUrl}/${this.leagueUrl}/${id}`)
+      .pipe();
+  }
 }

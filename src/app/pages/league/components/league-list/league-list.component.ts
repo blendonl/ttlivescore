@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { LeagueService } from '../../services/league.service';
-import { firstValueFrom } from 'rxjs';
+import { BehaviorSubject, firstValueFrom, Observable, Subject } from 'rxjs';
 import { LeagueRoutingModule } from '../../league-routing.module';
 import { League } from '../../models/league.model';
 import { NgClass } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-league-list',
@@ -11,15 +12,32 @@ import { NgClass } from '@angular/common';
   styleUrls: ['./league-list.component.scss'],
 })
 export class LeagueListComponent implements OnInit {
-  leagues: League[] = [];
+  @Input() leagues: BehaviorSubject<League[]> = new BehaviorSubject<League[]>(
+    [],
+  );
 
-  constructor(private leagueService: LeagueService) {}
+  constructor(
+    private leagueService: LeagueService,
+    private route: ActivatedRoute,
+  ) {}
 
   async ngOnInit() {
-    this.leagues = await this.getAllLeagues();
+    this.leagues.next(await this.getAllLeagues());
   }
 
   async getAllLeagues() {
     return await firstValueFrom(this.leagueService.getAllLeagues());
+  }
+
+  async deleteLeague(id: number) {
+    let tempLeagues = this.leagues.value;
+
+    this.leagues.next(
+      tempLeagues.splice(
+        tempLeagues.findIndex((v) => v.id === id),
+        1,
+      ),
+    );
+    await firstValueFrom(this.leagueService.deleteById(id));
   }
 }

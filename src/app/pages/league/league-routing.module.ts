@@ -6,7 +6,7 @@ import { LeagueDetailsComponent } from './components/league-details/league-detai
 
 const routes: Routes = [
   { component: LeagueListComponent, path: 'leagues' },
-  { component: LeagueDetailsComponent, path: 'leagues/:id' },
+  { component: LeagueDetailsComponent, path: 'leagues/details/:id' },
   { component: CreateLeagueComponent, path: 'leagues/create' },
 ];
 
