@@ -49,7 +49,7 @@ export class LeagueAddTeamComponent implements OnInit {
     let team = await firstValueFrom(
       this.leagueService.addTeam(
         this.id,
-        Number(this.addTeamFormGroup.get('team')?.value),
+        this.addTeamFormGroup.get('team')?.value,
       ),
     );
 

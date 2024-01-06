@@ -46,10 +46,10 @@ export class LeagueService {
       .pipe();
   }
 
-  addTeam(id: number, teamId: number) {
+  addTeam(id: number, teamName: string) {
     return this.httpClient
       .post(`${environment.ttlivescoreApiUrl}/${this.leagueUrl}/${id}/teams`, {
-        id: teamId,
+        teamName: teamName,
       })
       .pipe(
         catchError((err, caught) => {
