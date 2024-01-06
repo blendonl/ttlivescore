@@ -1,0 +1,60 @@
+<div class="row">
+  <a class="col-1 btn btn-success border ms-auto mb-2" [routerLink]="['create']"
+    >Create</a
+  >
+  <table class="table table-bordered">
+    <thead class="header">
+      <tr>
+        <th class="">Id</th>
+        <th class="">Name</th>
+        <th class="">Category</th>
+        <th class="">Year Created</th>
+        <th class="">Number of Teams</th>
+        <th class=""></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (league of leagues | async; track league.name) {
+        <tr>
+          <td>
+            {{ league.id }}
+          </td>
+          <td>
+            {{ league.name }}
+          </td>
+
+          <td>
+            {{ league.category }}
+          </td>
+
+          <td>
+            {{ league.yearCreated }}
+          </td>
+
+          <td>
+            {{ league.teamsLength }}
+          </td>
+
+          <td class="w-25">
+            <div class="row mx-2">
+              <a
+                class="col-4 btn btn-primary me-2"
+                [routerLink]="['details', league.id]"
+              >
+                Details
+              </a>
+              <button
+                class="col-4 btn btn-danger"
+                (click)="deleteLeague(league.id)"
+              >
+                Delete
+              </button>
+            </div>
+          </td>
+        </tr>
+      } @empty {
+        <div>There are no items.</div>
+      }
+    </tbody>
+  </table>
+</div>
