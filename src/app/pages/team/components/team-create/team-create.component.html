@@ -1,0 +1,16 @@
+<h1>Create Team</h1>
+
+<form [formGroup]="teamInput" (ngSubmit)="createTeam()">
+  <div class="row">
+    <label for="name">Name </label>
+    <input class="col-3" type="text" id="name" formControlName="name" />
+  </div>
+
+  <div class="row mt-2">
+    <button class="btn btn-primary col-1" type="submit">Submit</button>
+  </div>
+</form>
+
+@if (isSubmitted.value) {
+  <h1>{{ message.value }}</h1>
+}

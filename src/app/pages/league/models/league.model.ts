@@ -1,4 +1,4 @@
-import { Team } from './team.model';
+import { Team } from '../../team/model/team.model';
 
 export type League = {
   id: number;

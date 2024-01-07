@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatListModule } from '@angular/material/list';
 import { LeagueModule } from './pages/league/league.module';
+import { TeamModule } from './pages/team/team.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import { LeagueModule } from './pages/league/league.module';
     AppRoutingModule,
     HttpClientModule,
     LeagueModule,
+    TeamModule,
     UserModule,
     MatchModule,
     BrowserAnimationsModule,

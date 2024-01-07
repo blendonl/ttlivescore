@@ -1,0 +1,45 @@
+<div class="row">
+  <a class="col-1 btn btn-success border ms-auto mb-2" [routerLink]="['create']"
+    >Create</a
+  >
+  <table class="table table-bordered">
+    <thead class="header">
+      <tr>
+        <th class="">Id</th>
+        <th class="">Name</th>
+        <th class=""></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (team of teams; track team.name) {
+        <tr>
+          <td>
+            {{ team.id }}
+          </td>
+          <td>
+            {{ team.name }}
+          </td>
+
+          <td class="w-25">
+            <div class="row mx-2">
+              <a
+                class="col-4 btn btn-primary me-2"
+                [routerLink]="['details', team.id]"
+              >
+                Details
+              </a>
+              <button
+                class="col-4 btn btn-danger"
+                (click)="deleteTeam(team.id)"
+              >
+                Delete
+              </button>
+            </div>
+          </td>
+        </tr>
+      } @empty {
+        <div>There are no items.</div>
+      }
+    </tbody>
+  </table>
+</div>
