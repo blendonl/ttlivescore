@@ -1,0 +1,32 @@
+<div class="row">
+  <a class="col-1 m-2 ms-auto btn btn-success" [routerLink]="createRoute"
+    >Create</a
+  >
+  <table class="table table-hover table-bordered align-middle">
+    <thead class="table-light">
+      <tr>
+        @for (name of properties; track name) {
+          <td>{{ name }}</td>
+        }
+        <td></td>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      @for (item of items; track item) {
+        @for (name of properties; track name) {
+          <td>{{ item[name] }}</td>
+        }
+        <td class="w-25">
+          <div class="row mx-2">
+            <a class="col-4 btn btn-primary me-2" [routerLink]="detailsRoute">
+              Details
+            </a>
+            <button class="col-4 btn btn-danger" (click)="delete(item.id)">
+              Delete
+            </button>
+          </div>
+        </td>
+      }
+    </tbody>
+  </table>
+</div>

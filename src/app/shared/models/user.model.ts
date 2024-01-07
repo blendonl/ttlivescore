@@ -1,16 +1,10 @@
-export class User {
-
-  constructor(
-    public id: number,
-    public firstName: string,
-    public lastName: string,
-    public gender: string,
-    public birthDate: Date,
-    public email: string,
-    public password: string,
-    public teamName: string,
-    public profilePicture: File
-  ) {
-
-    }
-}
+export type User = {
+  id: number;
+  profilePicture: File;
+  firstName: string;
+  lastName: string;
+  gender: string;
+  birthDate: Date;
+  email: string;
+  teamName: string;
+};

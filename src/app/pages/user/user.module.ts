@@ -5,20 +5,18 @@ import {UserDetailsComponent} from './components/user-details/user-details.compo
 import {UserRoutingModule} from './user-routing.module';
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatTabsModule} from "@angular/material/tabs";
+import {TableComponent} from "../../shared/components/table/table.component";
 
 
 @NgModule({
-  declarations: [
-    UserListComponent,
-    UserDetailsComponent
-  ],
+  declarations: [UserListComponent, UserDetailsComponent],
   imports: [
     CommonModule,
     UserRoutingModule,
     NgOptimizedImage,
     MatGridListModule,
-    MatTabsModule
-  ]
+    MatTabsModule,
+    TableComponent,
+  ],
 })
-export class UserModule {
-}
+export class UserModule {}
