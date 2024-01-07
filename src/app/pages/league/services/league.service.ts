@@ -65,4 +65,16 @@ export class LeagueService {
       )
       .pipe();
   }
+
+  async removeTeam(leagueId: number, teamId: number) {
+    return this.httpClient
+      .delete<void>(
+        `${environment.ttlivescoreApiUrl}/${this.leagueUrl}/${leagueId}/teams/${teamId}`,
+      )
+      .pipe(
+        catchError((err, caught) => {
+          return of(err);
+        }),
+      );
+  }
 }

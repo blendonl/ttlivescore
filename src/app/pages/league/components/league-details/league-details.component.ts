@@ -36,6 +36,4 @@ export class LeagueDetailsComponent implements OnInit {
       this.leagueService.getAllTeams(this.league?.id ?? 0),
     );
   }
-
-  protected readonly BehaviorSubject = BehaviorSubject;
 }
