@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.dev';
 import { User } from '../../../shared/models/user.model';
+import { UserCreate } from '../models/user-create.model';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,7 @@ export class UserService {
 
   getAll() {
     return this.http
-      .get<any>(`${environment.ttlivescoreApiUrl}/${this.usersUrl}`)
+      .get<User[]>(`${environment.ttlivescoreApiUrl}/${this.usersUrl}`)
       .pipe();
   }
 
@@ -23,17 +24,17 @@ export class UserService {
     );
   }
 
-  saveUser(user: User) {
+  saveUser(user: UserCreate) {
     let formData = new FormData();
-    formData.append('profilePicture', user.profilePicture);
+    formData.append('profilePicture', new File([], ''));
     formData.append('firstName', user.firstName);
     formData.append('lastName', user.lastName);
     formData.append('email', user.email);
-    // formData.append('password', user.password);
+    formData.append('password', user.password);
     formData.append('gender', user.gender);
-    formData.append('teamName', user.teamName);
+    // formData.append('teamName', user.teamName);
     return this.http
-      .post<any>(`${environment.ttlivescoreApiUrl}/${this.usersUrl}`, formData)
+      .post<any>(`${environment.ttlivescoreApiUrl}/${this.usersUrl}`, user)
       .pipe();
   }
   readImage() {

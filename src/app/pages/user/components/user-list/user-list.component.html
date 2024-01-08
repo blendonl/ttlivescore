@@ -2,15 +2,16 @@
   [items]="users"
   [properties]="getUserProperties()"
   [createRoute]="['create']"
+  [detailsRoute]="['details']"
 ></app-table>
 
-<button class="btn" (click)="fileInput.click()">
-  <input
-    #fileInput
-    type="file"
-    hidden
-    (change)="doFileInput(fileInput.files)"
-  />
-</button>
+<!--<button class="btn" (click)="fileInput.click()">-->
+<!--  <input-->
+<!--    #fileInput-->
+<!--    type="file"-->
+<!--    hidden-->
+<!--    (change)="doFileInput(fileInput.files)"-->
+<!--  >-->
+<!--</button>-->
 
-<img src="{{ image }}" alt="" />
+<!--<img src="{{ image }}" alt="" />-->

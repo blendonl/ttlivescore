@@ -1,1 +1,79 @@
-<p>user-create works!</p>
+<div class="row">
+  <div class="col-6">
+    <form [formGroup]="formGroup" (ngSubmit)="createUser()">
+      <div class="row">
+        <div class="col">
+          <label for="firstName">First Name</label>
+          <input
+            class="w-100"
+            id="firstName"
+            type="text"
+            formControlName="firstName"
+          />
+        </div>
+        <div class="col">
+          <label for="lastName">Last Name</label>
+          <input
+            class="w-100"
+            id="lastName"
+            type="text"
+            formControlName="lastName"
+          />
+        </div>
+      </div>
+
+      <div class="row mt-1">
+        <div class="col">
+          <label for="email">Email</label>
+          <input
+            class="w-100"
+            id="email"
+            type="email"
+            formControlName="email"
+          />
+        </div>
+      </div>
+
+      <div class="row mt-1">
+        <div class="col">
+          <label for="password">Password</label>
+          <input
+            class="w-100"
+            id="password"
+            type="password"
+            formControlName="password"
+          />
+        </div>
+      </div>
+
+      <div class="row mt-1">
+        <div class="col">
+          <label for="gender">Gender</label>
+          <select class="w-100" id="gender" formControlName="gender">
+            <option ngValue="M">Male</option>
+            <option ngValue="F">Female</option>
+            <option ngValue="P">Prefer to Not Say</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row mt-1">
+        <div class="col">
+          <label for="birthDate">BirthDate</label>
+          <input
+            class="w-100"
+            id="birthDate"
+            type="date"
+            formControlName="birthDate"
+          />
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <button type="submit" class="col-3 btn btn-primary ms-auto">
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

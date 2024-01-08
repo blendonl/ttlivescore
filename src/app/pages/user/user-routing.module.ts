@@ -7,7 +7,7 @@ import { UserCreateComponent } from './components/user-create/user-create.compon
 const routes: Routes = [
   { component: UserListComponent, path: 'users' },
   { component: UserCreateComponent, path: 'users/create' },
-  { component: UserDetailsComponent, path: 'users/:id' },
+  { component: UserDetailsComponent, path: 'users/details/:id' },
 ];
 
 @NgModule({
