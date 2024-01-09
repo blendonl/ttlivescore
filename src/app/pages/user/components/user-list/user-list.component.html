@@ -1,7 +1,7 @@
 <app-table
   [items]="users"
   [properties]="userProperties"
-  [createRoute]="['create']"
+  [createRoute]="[createRoute]"
   [detailsRoute]="['details']"
   (onDelete)="deleteUser($event)"
 ></app-table>
