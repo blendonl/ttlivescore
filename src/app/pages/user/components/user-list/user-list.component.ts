@@ -13,6 +13,7 @@ export class UserListComponent implements OnInit {
   @Input() users: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
   @Output() onDelete: EventEmitter<any> = new EventEmitter<any>();
   @Input() userProperties: [key: string, value: string][];
+  @Input() createRoute: string;
 
   constructor(private userService: UserService) {
     this.userProperties = [
@@ -25,6 +26,8 @@ export class UserListComponent implements OnInit {
       ['gender', 'Gender'],
       ['teamName', 'Team Name'],
     ];
+
+    this.createRoute = 'create';
   }
   async ngOnInit() {}
 

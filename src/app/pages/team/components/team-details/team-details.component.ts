@@ -5,7 +5,6 @@ import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, firstValueFrom } from 'rxjs';
 import { TableComponent } from '../../../../shared/components/table/table.component';
 import { UserModule } from '../../../user/user.module';
-import { HttpUserEvent } from '@angular/common/http';
 import { User } from '../../../../shared/models/user.model';
 
 @Component({
@@ -18,11 +17,14 @@ import { User } from '../../../../shared/models/user.model';
 export class TeamDetailsComponent implements OnInit {
   team: Team | undefined;
   users: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
+  addUserRoute: string;
 
   constructor(
     private teamService: TeamService,
     private route: ActivatedRoute,
-  ) {}
+  ) {
+    this.addUserRoute = 'users/add';
+  }
 
   async ngOnInit() {
     let id = Number(this.route.snapshot.paramMap.get('id'));

@@ -3,6 +3,7 @@
 
   <app-user-list
     [users]="users"
+    [createRoute]="addUserRoute"
     (onDelete)="userDelete($event)"
   ></app-user-list>
 }
