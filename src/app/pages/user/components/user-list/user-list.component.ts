@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { User } from 'src/app/shared/models/user.model';
 import { UserService } from '../../services/users.service';
-import { firstValueFrom } from 'rxjs';
+import { BehaviorSubject, firstValueFrom } from 'rxjs';
 import { D } from '@angular/cdk/keycodes';
 
 @Component({
@@ -10,73 +10,25 @@ import { D } from '@angular/cdk/keycodes';
   styleUrls: ['./user-list.component.scss'],
 })
 export class UserListComponent implements OnInit {
-  users: User[] = [];
-  image: string | ArrayBuffer | null = new ArrayBuffer(0);
+  @Input() users: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
+  @Output() onDelete: EventEmitter<any> = new EventEmitter<any>();
+  @Input() userProperties: [key: string, value: string][];
 
-  constructor(private userService: UserService) {}
-
-  async ngOnInit() {
-    this.users = await this.getUsers();
-    console.log(this.users);
+  constructor(private userService: UserService) {
+    this.userProperties = [
+      ['id', 'Id'],
+      ['firstName', 'First Name'],
+      ['lastName', 'Last Name'],
+      ['email', 'Email'],
+      ['birthDate', 'Date of Birth'],
+      ['roles', 'Role'],
+      ['gender', 'Gender'],
+      ['teamName', 'Team Name'],
+    ];
   }
+  async ngOnInit() {}
 
-  getUsers() {
-    return firstValueFrom(this.userService.getAll());
-  }
-
-  getUserProperties() {
-    let user: User = {
-      id: 1,
-      firstName: '',
-      lastName: '',
-      profilePicture: new File([], ''),
-      gender: '',
-      birthDate: new Date(Date.now()),
-      email: '',
-      teamName: '',
-    };
-    return Object.getOwnPropertyNames(user);
-  }
-
-  onRowClick(index: number) {}
-
-  saveUser() {
-    let dataImage = 'favicon.ico';
-    this.userService.readImage().subscribe((data) => {});
-  }
-
-  doFileInput(event: FileList | null) {
-    let file = event?.item(0) as File;
-    const reader = new FileReader();
-    reader.onload = async (e) => {
-      // @ts-ignore
-      this.image = e.target?.result;
-
-      // let user = new User(
-      //   1,
-      //   'Sabrina ',
-      //   'Keller',
-      //   'F',
-      //   new Date('12/27/1997'),
-      //   'sabrina@gmail.com',
-      //   'password',
-      //   'PriPing',
-      //   file,
-      // );
-      // console.log(user);
-      //
-      // this.userService.saveUser(user).subscribe(
-      //   (data) => {
-      //     console.log(data);
-      //   },
-      //   (onerror) => console.log(onerror.headers),
-      // );
-    };
-
-    reader.onerror = (err) => {
-      console.log(err);
-    };
-
-    reader.readAsDataURL(file);
+  deleteUser(id: number) {
+    this.onDelete.emit(id);
   }
 }

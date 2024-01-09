@@ -1,3 +1,8 @@
 @if (team) {
   <p>{{ team.name }}</p>
+
+  <app-user-list
+    [users]="users"
+    (onDelete)="userDelete($event)"
+  ></app-user-list>
 }

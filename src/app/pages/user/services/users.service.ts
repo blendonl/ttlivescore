@@ -25,19 +25,18 @@ export class UserService {
   }
 
   saveUser(user: UserCreate) {
-    let formData = new FormData();
-    formData.append('profilePicture', new File([], ''));
-    formData.append('firstName', user.firstName);
-    formData.append('lastName', user.lastName);
-    formData.append('email', user.email);
-    formData.append('password', user.password);
-    formData.append('gender', user.gender);
-    // formData.append('teamName', user.teamName);
+    // let formData = new FormData();
     return this.http
       .post<any>(`${environment.ttlivescoreApiUrl}/${this.usersUrl}`, user)
       .pipe();
   }
   readImage() {
     return this.http.get('assets/favicon.ico').pipe();
+  }
+
+  deleteById(id: number) {
+    return this.http
+      .delete<any>(`${environment.ttlivescoreApiUrl}/${this.usersUrl}/${id}`)
+      .pipe();
   }
 }

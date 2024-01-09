@@ -1,8 +1,9 @@
 <app-table
   [items]="users"
-  [properties]="getUserProperties()"
+  [properties]="userProperties"
   [createRoute]="['create']"
   [detailsRoute]="['details']"
+  (onDelete)="deleteUser($event)"
 ></app-table>
 
 <!--<button class="btn" (click)="fileInput.click()">-->

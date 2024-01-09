@@ -41,4 +41,12 @@ export class TeamService {
       .delete(`${environment.ttlivescoreApiUrl}/${this.teamUrl}/${id}`)
       .pipe();
   }
+
+  async deleteUser(teamId: number, userId: number) {
+    return this.httpClient
+      .delete(
+        `${environment.ttlivescoreApiUrl}/${this.teamUrl}/${teamId}/users/${userId}`,
+      )
+      .pipe();
+  }
 }

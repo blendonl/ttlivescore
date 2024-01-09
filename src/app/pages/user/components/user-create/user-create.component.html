@@ -48,6 +48,28 @@
 
       <div class="row mt-1">
         <div class="col">
+          <label for="role">Role</label>
+
+          <select
+            class="w-100 dropdown"
+            id="role"
+            formControlName="role"
+            [value]="roles[0]"
+          >
+            <option class="dropdown-item" disabled selected>
+              Choose a role
+            </option>
+            @for (role of roles; track role) {
+              <option class="dropdown-item" [ngValue]="role[0]">
+                {{ role[1] }}
+              </option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div class="row mt-1">
+        <div class="col">
           <label for="gender">Gender</label>
           <select class="w-100" id="gender" formControlName="gender">
             <option ngValue="M">Male</option>

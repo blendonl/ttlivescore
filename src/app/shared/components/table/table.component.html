@@ -6,16 +6,18 @@
     <thead class="table-light">
       <tr>
         @for (name of properties; track name) {
-          <td>{{ name }}</td>
+          <td>{{ name[1] }}</td>
         }
         <td></td>
       </tr>
     </thead>
     <tbody class="table-group-divider">
-      <tr>
-        @for (item of items; track item) {
+      @for (item of items | async; track item) {
+        <tr>
           @for (name of properties; track name) {
-            <td>{{ item[name] }}</td>
+            <td>
+              {{ item[name[0]] }}
+            </td>
           }
           <td class="w-25">
             <div class="row mx-2">
@@ -25,13 +27,16 @@
               >
                 Details
               </a>
-              <button class="col-4 btn btn-danger" (click)="delete(item.id)">
+              <button
+                class="col-4 btn btn-danger"
+                (click)="deleteClicked(item.id)"
+              >
                 Delete
               </button>
             </div>
           </td>
-        }
-      </tr>
+        </tr>
+      }
     </tbody>
   </table>
 </div>
