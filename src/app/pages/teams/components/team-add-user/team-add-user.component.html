@@ -1,12 +1,12 @@
-<form [formGroup]="addTeamFormGroup" (ngSubmit)="addTeam()">
+<form [formGroup]="addPlayerFormGroup" (ngSubmit)="addPlayer()">
   <div class="row">
     <input class="col-4 mb-2" type="text" (keyup)="searchChange($event)" />
   </div>
   <div class="row">
-    <select class="col-5" id="team" size="5" formControlName="team">
-      @for (user of users | async) {
-        <option *ngFor="let team of teams | async" [ngValue]="team.name">
-          {{ team.name }}
+    <select class="col-5" id="user" size="5" formControlName="user">
+      @for (user of users | async; track user) {
+        <option [ngValue]="user.firstName">
+          {{ user.firstName }} {{ user.lastName }} ({{ user.email }})
         </option>
       }
     </select>
@@ -17,6 +17,6 @@
   </div>
 </form>
 
-@if (isSubmitted.value) {
-  <h1>{{ message.value }}</h1>
-}
+<!--@if (isSubmitted.value) {-->
+<!--  <h1>{{ message.value }}</h1>-->
+<!--}-->

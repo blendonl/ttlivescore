@@ -39,4 +39,12 @@ export class UserService {
       .delete<any>(`${environment.ttlivescoreApiUrl}/${this.usersUrl}/${id}`)
       .pipe();
   }
+
+  getAllByNotTeamId(teamId: number) {
+    return this.http
+      .get<User[]>(
+        `${environment.ttlivescoreApiUrl}/${this.usersUrl}?nt=${teamId}`,
+      )
+      .pipe();
+  }
 }

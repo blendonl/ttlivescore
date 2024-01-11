@@ -15,9 +15,7 @@
       @for (item of items | async; track item) {
         <tr>
           @for (name of properties; track name) {
-            <td>
-              {{ item[name[0]] }}
-            </td>
+            <td>{{ item[name[0]] }}</td>
           }
           <td class="w-25">
             <div class="row mx-2">
