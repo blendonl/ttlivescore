@@ -42,11 +42,26 @@ export class TeamService {
       .pipe();
   }
 
-  async deleteUser(teamId: number, userId: number) {
+  deleteUser(teamId: number, userId: number) {
     return this.httpClient
       .delete(
-        `${environment.ttlivescoreApiUrl}/${this.teamUrl}/${teamId}/users/${userId}`,
+        `${environment.ttlivescoreApiUrl}/${this.teamUrl}/${teamId}/players/${userId}`,
       )
       .pipe();
+  }
+
+  addUser(teamId: number, userId: number) {
+    return this.httpClient
+      .post<Team>(
+        `${environment.ttlivescoreApiUrl}/${this.teamUrl}/${teamId}/players`,
+        {
+          userId: userId,
+        },
+      )
+      .pipe(
+        catchError((err) => {
+          return of(err.message);
+        }),
+      );
   }
 }

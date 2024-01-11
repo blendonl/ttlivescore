@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { TeamsComponent } from './components/teams/teams.component';
 import { TeamCreateComponent } from './components/team-create/team-create.component';
 import { TeamDetailsComponent } from './components/team-details/team-details.component';
-import { TeamAddUserComponent } from '../teams/components/team-add-user/team-add-user.component';
+import { TeamAddUserComponent } from './components/team-add-user/team-add-user.component';
 
 const routes: Routes = [
   { component: TeamsComponent, path: 'teams' },

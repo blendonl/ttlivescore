@@ -29,11 +29,13 @@ export class TeamDetailsComponent implements OnInit {
   async ngOnInit() {
     let id = Number(this.route.snapshot.paramMap.get('id'));
     this.team = await firstValueFrom(this.teamService.getById(id));
-    console.log(this.team.users);
+    console.log(this.team.id);
     this.users.next(this.team.users);
   }
 
   async userDelete(id: number) {
-    await this.teamService.deleteUser(this.team?.id ?? 0, id);
+    await firstValueFrom(this.teamService.deleteUser(this.team?.id ?? 0, id));
+
+    this.users.next(this.users.value.filter((u) => u.id !== id));
   }
 }
