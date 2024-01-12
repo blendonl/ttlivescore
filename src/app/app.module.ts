@@ -11,6 +11,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatListModule } from '@angular/material/list';
 import { LeagueModule } from './pages/league/league.module';
 import { TeamModule } from './pages/team/team.module';
+import { EventModule } from './pages/event/event.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,6 +26,7 @@ import { TeamModule } from './pages/team/team.module';
     BrowserAnimationsModule,
     MatTabsModule,
     MatListModule,
+    EventModule,
   ],
   providers: [{ provide: 'MAX_VALUE_SIZE', useValue: 1000000000000 }],
   bootstrap: [AppComponent],
