@@ -29,7 +29,6 @@ export class TeamDetailsComponent implements OnInit {
   async ngOnInit() {
     let id = Number(this.route.snapshot.paramMap.get('id'));
     this.team = await firstValueFrom(this.teamService.getById(id));
-    console.log(this.team.id);
     this.users.next(this.team.users);
   }
 
