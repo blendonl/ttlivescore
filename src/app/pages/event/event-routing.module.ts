@@ -7,6 +7,9 @@ import { TournamentDetailsComponent } from './component/tournament/tournament-de
 import { EventsComponent } from './component/event/events/events.component';
 import { TournamentsComponent } from './component/tournament/tournaments/tournaments.component';
 import { EventDetailsComponent } from './component/event/event-details/event-details.component';
+import { WeeksComponent } from './component/week/weeks/weeks.component';
+import { WeekCreateComponent } from './component/week/week-create/week-create.component';
+import { WeekDetailsComponent } from './component/week/week-details/week-details.component';
 
 const routes: Routes = [
   { component: EventsComponent, path: 'events' },
@@ -18,6 +21,13 @@ const routes: Routes = [
     path: 'events/tournaments/details/:id',
   },
   { component: TournamentCreateComponent, path: 'events/tournaments/create' },
+
+  { component: WeeksComponent, path: 'events/weeks' },
+  {
+    component: WeekDetailsComponent,
+    path: 'events/weeks/details/:id',
+  },
+  { component: WeekCreateComponent, path: 'events/weeks/create' },
 ];
 
 @NgModule({

@@ -1,4 +1,4 @@
-import { Category } from '../../user/models/category.model';
+import { Category } from '../../../user/models/category.model';
 
 export type TournamentShort = {
   id: number;

@@ -9,8 +9,8 @@ import { EventService } from '../../../service/event.service';
 import { EventCreate } from '../../../model/event-create.model';
 import { EventType } from '../../../model/event-type.model';
 import { firstValueFrom } from 'rxjs';
-import { Tournament } from '../../../../user/models/tournament.model';
-import { TournamentCreate } from '../../../model/tournament-create.model';
+import { Tournament } from '../../../model/tournament/tournament.model';
+import { TournamentCreate } from '../../../model/tournament/tournament-create.model';
 import { Category } from '../../../../user/models/category.model';
 
 @Component({

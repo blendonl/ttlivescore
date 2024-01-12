@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment.dev';
 import { EventCreate } from '../model/event-create.model';
-import { TournamentCreate } from '../model/tournament-create.model';
-import { Tournament } from '../../user/models/tournament.model';
+import { TournamentCreate } from '../model/tournament/tournament-create.model';
+import { Tournament } from '../model/tournament/tournament.model';
 import { Injectable } from '@angular/core';
-import { TournamentShort } from '../model/tournament-short.model';
+import { TournamentShort } from '../model/tournament/tournament-short.model';
 
 @Injectable({ providedIn: 'root' })
 export class TournamentService {

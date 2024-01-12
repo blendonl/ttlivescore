@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { Tournament } from '../../../../user/models/tournament.model';
+import { Tournament } from '../../../model/tournament/tournament.model';
 import { BehaviorSubject, firstValueFrom } from 'rxjs';
 import { B } from '@angular/cdk/keycodes';
 import { TableComponent } from '../../../../../shared/components/table/table.component';
-import { TournamentShort } from '../../../model/tournament-short.model';
+import { TournamentShort } from '../../../model/tournament/tournament-short.model';
 import { TournamentService } from '../../../service/tournament.service';
 
 @Component({

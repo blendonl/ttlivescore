@@ -1,5 +1,5 @@
-import { Category } from './category.model';
-import { User } from '../../../shared/models/user.model';
+import { Category } from '../../../user/models/category.model';
+import { User } from '../../../../shared/models/user.model';
 
 export type Tournament = {
   id: number;

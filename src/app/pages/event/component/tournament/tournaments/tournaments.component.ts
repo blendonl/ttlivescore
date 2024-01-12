@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TournamentListComponent } from '../tournament-list/tournament-list.component';
 import { BehaviorSubject, firstValueFrom } from 'rxjs';
-import { Tournament } from '../../../../user/models/tournament.model';
+import { Tournament } from '../../../model/tournament/tournament.model';
 import { TournamentService } from '../../../service/tournament.service';
-import { TournamentShort } from '../../../model/tournament-short.model';
+import { TournamentShort } from '../../../model/tournament/tournament-short.model';
 
 @Component({
   selector: 'app-tournaments',
