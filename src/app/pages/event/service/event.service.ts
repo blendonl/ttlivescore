@@ -25,7 +25,7 @@ export class EventService {
     );
   }
 
-  saveUser(event: EventCreate) {
+  saveEvent(event: EventCreate) {
     return this.http
       .post<Event>(`${environment.ttlivescoreApiUrl}/${this.eventUrl}`, event)
       .pipe();
@@ -33,7 +33,10 @@ export class EventService {
 
   saveTournament(event: TournamentCreate) {
     return this.http
-      .post<Tournament>(`${environment.ttlivescoreApiUrl}/tournaments`, event)
+      .post<Tournament>(
+        `${environment.ttlivescoreApiUrl}/${this.eventUrl}/tournaments`,
+        event,
+      )
       .pipe();
   }
 

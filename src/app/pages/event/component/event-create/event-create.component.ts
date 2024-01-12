@@ -30,7 +30,7 @@ export class EventCreateComponent {
       date: this.formGroup.get('date')?.value,
     };
 
-    let createdEvent = await firstValueFrom(this.eventService.saveUser(event));
+    let createdEvent = await firstValueFrom(this.eventService.saveEvent(event));
 
     console.log(createdEvent);
   }

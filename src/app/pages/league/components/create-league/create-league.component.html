@@ -1,8 +1,6 @@
-
 <form [formGroup]="createLeagueFormGroup" (ngSubmit)="createLeague()">
-
   <label for="name">Name: </label>
-  <input id="name" type="text" formControlName="name">
+  <input id="name" type="text" formControlName="name" />
 
   <label for="category">Category: </label>
   <select id="category" formControlName="category">
@@ -10,10 +8,7 @@
     <option *ngFor="let category of categories" [ngValue]="category">
       {{ category }}
     </option>
-
-
   </select>
 
   <button type="submit">Submit</button>
-
 </form>
