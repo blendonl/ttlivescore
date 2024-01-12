@@ -1,1 +1,5 @@
-<app-table [items]="tournaments" [properties]="properties"></app-table>
+<app-table
+  [items]="tournaments"
+  [properties]="properties"
+  (onDelete)="onDelete($event)"
+></app-table>
