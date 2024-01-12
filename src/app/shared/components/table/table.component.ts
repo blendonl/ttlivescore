@@ -15,8 +15,8 @@ export class TableComponent {
 
   @Input() properties: [key: string, value: string][] = [];
 
-  @Input() detailsRoute: string[] = [];
-  @Input() createRoute: string[] = [];
+  @Input() detailsRoute: string[] = ['details'];
+  @Input() createRoute: string[] = ['create'];
   @Output() onDelete: EventEmitter<any> = new EventEmitter();
 
   deleteClicked(id: number): void {
