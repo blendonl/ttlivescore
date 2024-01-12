@@ -2,29 +2,40 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Team } from '../../model/team.model';
 import { TeamService } from '../../service/team.service';
 import { ActivatedRoute } from '@angular/router';
-import { firstValueFrom } from 'rxjs';
+import { BehaviorSubject, firstValueFrom } from 'rxjs';
+import { TableComponent } from '../../../../shared/components/table/table.component';
+import { UserModule } from '../../../user/user.module';
+import { User } from '../../../../shared/models/user.model';
 
 @Component({
   selector: 'app-team-details',
   standalone: true,
-  imports: [],
+  imports: [TableComponent, UserModule],
   templateUrl: './team-details.component.html',
   styleUrl: './team-details.component.scss',
 })
 export class TeamDetailsComponent implements OnInit {
   team: Team | undefined;
+  users: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
+  addUserRoute: string;
 
   constructor(
     private teamService: TeamService,
     private route: ActivatedRoute,
-  ) {}
+  ) {
+    this.addUserRoute = 'users/add';
+  }
 
   async ngOnInit() {
     let id = Number(this.route.snapshot.paramMap.get('id'));
-    this.team = await this.getTeam(id);
+    this.team = await firstValueFrom(this.teamService.getById(id));
+    console.log(this.team.id);
+    this.users.next(this.team.users);
   }
 
-  async getTeam(id: number) {
-    return await firstValueFrom(this.teamService.getById(id));
+  async userDelete(id: number) {
+    await firstValueFrom(this.teamService.deleteUser(this.team?.id ?? 0, id));
+
+    this.users.next(this.users.value.filter((u) => u.id !== id));
   }
 }

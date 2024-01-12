@@ -1,16 +1,13 @@
-export class User {
+import { Role } from '../../pages/user/models/role.model';
 
-  constructor(
-    public id: number,
-    public firstName: string,
-    public lastName: string,
-    public gender: string,
-    public birthDate: Date,
-    public email: string,
-    public password: string,
-    public teamName: string,
-    public profilePicture: File
-  ) {
-
-    }
-}
+export type User = {
+  id?: number;
+  profilePicture?: File;
+  firstName: string;
+  lastName: string;
+  gender: string;
+  birthDate: Date;
+  email: string;
+  teamName?: string;
+  roles?: Role[];
+};

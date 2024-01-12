@@ -1,0 +1,14 @@
+<div class="row">
+  <input class="col-4 mb-2" type="text" (keyup)="searchChange($event)" />
+</div>
+<div class="row">
+  <select class="col-5" id="user" size="5">
+    @for (item of items | async; track item) {
+      <option [ngValue]="item.id">
+        @for (prop of properties; track prop) {
+          {{ item[prop] }}
+        }
+      </option>
+    }
+  </select>
+</div>

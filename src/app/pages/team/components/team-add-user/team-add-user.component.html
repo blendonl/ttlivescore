@@ -1,0 +1,27 @@
+<form [formGroup]="addPlayerFormGroup" (ngSubmit)="addPlayer()">
+  <div class="row">
+    <input class="col-4 mb-2" type="text" (keyup)="searchChange($event)" />
+  </div>
+  <div class="row">
+    <select class="col-5" id="user" size="5" formControlName="user">
+      @for (user of users | async; track user) {
+        <option [ngValue]="user.id">
+          {{ user.firstName }} {{ user.lastName }} ({{ user.email }})
+        </option>
+      }
+    </select>
+  </div>
+
+  <!--  <app-search-select-->
+  <!--    [items]="users"-->
+  <!--    [properties]="properties"-->
+  <!--  ></app-search-select>-->
+
+  <div class="row mt-2">
+    <button class="col-1 me-auto btn btn-primary">Submit</button>
+  </div>
+</form>
+
+<!--@if (isSubmitted.value) {-->
+<!--  <h1>{{ message.value }}</h1>-->
+<!--}-->
