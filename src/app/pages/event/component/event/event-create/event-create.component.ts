@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { EventService } from '../../service/event.service';
+import { EventService } from '../../../service/event.service';
 import { FormControl, FormGroup } from '@angular/forms';
-import { EventCreate } from '../../model/event-create.model';
-import { EventType } from '../../model/event-type.model';
+import { EventCreate } from '../../../model/event-create.model';
+import { EventType } from '../../../model/event-type.model';
 import { firstValueFrom } from 'rxjs';
 
 @Component({

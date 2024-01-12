@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EventCreateComponent } from './component/event-create/event-create.component';
+import { EventCreateComponent } from './component/event/event-create/event-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EventRoutingModule } from './event-routing.module';
-import { EventDetailsComponent } from './component/event-details/event-details.component';
-import { EventsComponent } from './component/events/events.component';
+import { EventDetailsComponent } from './component/event/event-details/event-details.component';
+import { EventsComponent } from './component/event/events/events.component';
 
 @NgModule({
   declarations: [EventCreateComponent, EventDetailsComponent, EventsComponent],
